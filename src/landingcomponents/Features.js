@@ -1,43 +1,53 @@
-import * as React from 'react';
-import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
-import Card from '@mui/material/Card';
-import Chip from '@mui/material/Chip';
-import Container from '@mui/material/Container';
-import Grid from '@mui/material/Grid';
-import Link from '@mui/material/Link';
-import Stack from '@mui/material/Stack';
-import Typography from '@mui/material/Typography';
-import ChevronRightRoundedIcon from '@mui/icons-material/ChevronRightRounded';
-import EngineeringIcon from '@mui/icons-material/Engineering';
-import SellIcon from '@mui/icons-material/Sell';
-import ShoppingBagIcon from '@mui/icons-material/ShoppingBag';
-import image from '../data/image.jpg'
+import * as React from "react";
+import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
+import Card from "@mui/material/Card";
+import Chip from "@mui/material/Chip";
+import Container from "@mui/material/Container";
+import Grid from "@mui/material/Grid";
+import Link from "@mui/material/Link";
+import Stack from "@mui/material/Stack";
+import Typography from "@mui/material/Typography";
+import ChevronRightRoundedIcon from "@mui/icons-material/ChevronRightRounded";
+import EngineeringIcon from "@mui/icons-material/Engineering";
+import SellIcon from "@mui/icons-material/Sell";
+import ShoppingBagIcon from "@mui/icons-material/ShoppingBag";
+import image from "../data/item.jpg";
+import worker from "../data/worker.jpg";
+import sell from "../data/sell.jpg";
 const items = [
   {
+    route: "buy",
     icon: <ShoppingBagIcon />,
-    title: 'Buy Machines',
+    title: "Buy Machines",
     description:
-      'Power Up Your Industrial Projects. Buy Smarter, Hire Experts, Score Deals on Used Machinery.'
+      "Power Up Your Industrial Projects. Buy Smarter, Hire Experts, Score Deals on Used Machinery.",
+    imageLight: `url(${image})`,
+    imageDark: `url(${image})`,
   },
   {
+    route: "sell",
     icon: <SellIcon />,
-    title: 'Sell Your Machine',
+    title: "Sell Your Machine",
     description:
-      'Sell Smart, Sell Fast. Get Top Dollar for Your Used Machinery.',
+      "Sell Smart, Sell Fast. Get Top Dollar for Your Used Machinery.",
+    imageLight: `url(${sell})`,
+    imageDark: `url(${sell})`,
   },
   {
+    route: "experts",
     icon: <EngineeringIcon />,
-    title: 'Hire Experts',
+    title: "Hire Experts",
     description:
-      'The Easy Way to Find Expert Support for Your Industrial Machinery. Level Up Your Projects. Hire the Right Industrial Experts Here.',
+      "The Easy Way to Find Expert Support for Your Industrial Machinery. Level Up Your Projects. Hire the Right Industrial Experts Here.",
+    imageLight: `url(${worker})`,
+    imageDark: `url(${worker})`,
   },
 ];
-
 export default function Features() {
   const [selectedItemIndex, setSelectedItemIndex] = React.useState(0);
 
-  const handleItemClick = (index) => {
+  const handleItemClick = (index: number) => {
     setSelectedItemIndex(index);
   };
 
@@ -57,31 +67,38 @@ export default function Features() {
               sx={{ mb: { xs: 2, sm: 4 } }}
             >
               Here you can provide a brief overview of the key features of the
-              product. For example, you could list the number of features, the types
-              of features, add-ons, or the benefits of the features.
+              product. For example, you could list the number of features, the
+              types of features, add-ons, or the benefits of the features.
             </Typography>
           </div>
-          <Grid container item gap={1} sx={{ display: { xs: 'auto', sm: 'none' } }}>
+          <Grid
+            container
+            item
+            gap={1}
+            sx={{ display: { xs: "auto", sm: "none" } }}
+          >
             {items.map(({ title }, index) => (
-              <Button
+              <Chip
+                key={index}
                 label={title}
-                component={Link} to={title}
+                onClick={() => handleItemClick(index)}
                 sx={{
                   borderColor: (theme) => {
-                    if (theme.palette.mode === 'light') {
-                      return selectedItemIndex === index ? 'primary.light' : '';
+                    if (theme.palette.mode === "light") {
+                      return selectedItemIndex === index ? "primary.light" : "";
                     }
-                    return selectedItemIndex === index ? 'primary.light' : '';
+                    return selectedItemIndex === index ? "primary.light" : "";
                   },
                   background: (theme) => {
-                    if (theme.palette.mode === 'light') {
-                      return selectedItemIndex === index ? 'none' : '';
+                    if (theme.palette.mode === "light") {
+                      return selectedItemIndex === index ? "none" : "";
                     }
-                    return selectedItemIndex === index ? 'none' : '';
+                    return selectedItemIndex === index ? "none" : "";
                   },
-                  backgroundColor: selectedItemIndex === index ? 'primary.main' : '',
-                  '& .MuiChip-label': {
-                    color: selectedItemIndex === index ? '#fff' : '',
+                  backgroundColor:
+                    selectedItemIndex === index ? "primary.main" : "",
+                  "& .MuiChip-label": {
+                    color: selectedItemIndex === index ? "#fff" : "",
                   },
                 }}
               />
@@ -91,20 +108,36 @@ export default function Features() {
             component={Card}
             variant="outlined"
             sx={{
-              display: { xs: 'auto', sm: 'none' },
+              display: { xs: "auto", sm: "none" },
               mt: 4,
             }}
           >
             <Box
               sx={{
-                backgroundImage: {image}
+                backgroundImage: (theme) =>
+                  theme.palette.mode === "light"
+                    ? items[selectedItemIndex].imageLight
+                    : items[selectedItemIndex].imageDark,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+                backgroundRepeat: "no-repeat",
+                width: "100%",
+                height: "500",
               }}
             />
             <Box sx={{ px: 2, pb: 2 }}>
-              <Typography color="text.primary" variant="body2" fontWeight="bold">
+              <Typography
+                color="text.primary"
+                variant="body2"
+                fontWeight="bold"
+              >
                 {selectedFeature.title}
               </Typography>
-              <Typography color="text.secondary" variant="body2" sx={{ my: 0.5 }}>
+              <Typography
+                color="text.secondary"
+                variant="body2"
+                sx={{ my: 0.5 }}
+              >
                 {selectedFeature.description}
               </Typography>
               <Link
@@ -112,16 +145,16 @@ export default function Features() {
                 variant="body2"
                 fontWeight="bold"
                 sx={{
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  '& > svg': { transition: '0.2s' },
-                  '&:hover > svg': { transform: 'translateX(2px)' },
+                  display: "inline-flex",
+                  alignItems: "center",
+                  "& > svg": { transition: "0.2s" },
+                  "&:hover > svg": { transform: "translateX(2px)" },
                 }}
               >
                 <span>Learn more</span>
                 <ChevronRightRoundedIcon
                   fontSize="small"
-                  sx={{ mt: '1px', ml: '2px' }}
+                  sx={{ mt: "1px", ml: "2px" }}
                 />
               </Link>
             </Box>
@@ -132,9 +165,9 @@ export default function Features() {
             alignItems="flex-start"
             spacing={2}
             useFlexGap
-            sx={{ width: '100%', display: { xs: 'none', sm: 'flex' } }}
+            sx={{ width: "100%", display: { xs: "none", sm: "flex" } }}
           >
-            {items.map(({ icon, title, description }, index) => (
+            {items.map(({ icon, title, description, route }, index) => (
               <Card
                 key={index}
                 variant="outlined"
@@ -142,48 +175,50 @@ export default function Features() {
                 onClick={() => handleItemClick(index)}
                 sx={{
                   p: 3,
-                  height: 'fit-content',
-                  width: '100%',
-                  background: 'none',
+                  height: "fit-content",
+                  width: "100%",
+                  background: "none",
                   backgroundColor:
-                    selectedItemIndex === index ? 'action.selected' : undefined,
+                    selectedItemIndex === index ? "action.selected" : undefined,
                   borderColor: (theme) => {
-                    if (theme.palette.mode === 'light') {
+                    if (theme.palette.mode === "light") {
                       return selectedItemIndex === index
-                        ? 'primary.light'
-                        : 'grey.200';
+                        ? "primary.light"
+                        : "grey.200";
                     }
-                    return selectedItemIndex === index ? 'primary.dark' : 'grey.800';
+                    return selectedItemIndex === index
+                      ? "primary.dark"
+                      : "grey.800";
                   },
                 }}
               >
                 <Box
                   sx={{
-                    width: '100%',
-                    display: 'flex',
-                    textAlign: 'left',
-                    flexDirection: { xs: 'column', md: 'row' },
-                    alignItems: { md: 'center' },
+                    width: "100%",
+                    display: "flex",
+                    textAlign: "left",
+                    flexDirection: { xs: "column", md: "row" },
+                    alignItems: { md: "center" },
                     gap: 2.5,
                   }}
                 >
                   <Box
                     sx={{
                       color: (theme) => {
-                        if (theme.palette.mode === 'light') {
+                        if (theme.palette.mode === "light") {
                           return selectedItemIndex === index
-                            ? 'primary.main'
-                            : 'grey.300';
+                            ? "primary.main"
+                            : "grey.300";
                         }
                         return selectedItemIndex === index
-                          ? 'primary.main'
-                          : 'grey.700';
+                          ? "primary.main"
+                          : "grey.700";
                       },
                     }}
                   >
                     {icon}
                   </Box>
-                  <Box sx={{ textTransform: 'none' }}>
+                  <Box sx={{ textTransform: "none" }}>
                     <Typography
                       color="text.primary"
                       variant="body2"
@@ -202,21 +237,28 @@ export default function Features() {
                       color="primary"
                       variant="body2"
                       fontWeight="bold"
-                      to={title}
                       sx={{
-                        display: 'inline-flex',
-                        alignItems: 'center',
-                        '& > svg': { transition: '0.2s' },
-                        '&:hover > svg': { transform: 'translateX(2px)' },
+                        display: "inline-flex",
+                        alignItems: "center",
+                        "& > svg": { transition: "0.2s" },
+                        "&:hover > svg": { transform: "translateX(2px)" },
                       }}
                       onClick={(event) => {
                         event.stopPropagation();
                       }}
                     >
-                      <span>Learn more</span>
+                      <Button
+                        color="primary"
+                        variant="contained"
+                        size="small"
+                        component="a"
+                        href={route}
+                      >
+                        {route}
+                      </Button>
                       <ChevronRightRoundedIcon
                         fontSize="small"
-                        sx={{ mt: '1px', ml: '2px' }}
+                        sx={{ mt: "1px", ml: "2px" }}
                       />
                     </Link>
                   </Box>
@@ -229,19 +271,33 @@ export default function Features() {
           item
           xs={12}
           md={6}
-          sx={{ display: { xs: 'none', sm: 'flex' }, width: '100%' }}
+          sx={{ display: { xs: "none", sm: "flex" }, width: "100%" }}
         >
           <Card
             variant="outlined"
             sx={{
-              height: '75%',
-              width: '100%',
-              display: { xs: 'none', sm: 'flex' },
-              pointerEvents: 'none',
-              backgroundImage:"ais_user"
+              height: "100%",
+              width: "100%",
+              display: { xs: "none", sm: "flex" },
+              pointerEvents: "none",
             }}
           >
-            <img object-fit="cover"height= "auto" alt="machine" width="100%" src={image}/>
+            <Box
+              sx={{
+                m: "auto",
+                // width: 420,
+                // height: 500,
+                backgroundImage: (theme) =>
+                  theme.palette.mode === "light"
+                    ? items[selectedItemIndex].imageLight
+                    : items[selectedItemIndex].imageDark,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+                backgroundRepeat: "no-repeat",
+                width: "100%",
+                height: "100%",
+              }}
+            />
           </Card>
         </Grid>
       </Grid>
