@@ -42,7 +42,7 @@ export default function Hero() {
               fontSize: 'clamp(3.5rem, 10vw, 4rem)',
             }}
           >
-            Our latest&nbsp;
+            Trade Your&nbsp;
             <Typography
               component="span"
               variant="h1"
@@ -52,7 +52,7 @@ export default function Hero() {
                   theme.palette.mode === 'light' ? 'primary.main' : 'primary.light',
               }}
             >
-              products
+              Metals
             </Typography>
           </Typography>
           <Typography
@@ -60,9 +60,7 @@ export default function Hero() {
             color="text.secondary"
             sx={{ alignSelf: 'center', width: { sm: '100%', md: '80%' } }}
           >
-            Explore our cutting-edge dashboard, delivering high-quality solutions
-            tailored to your needs. Elevate your experience with top-tier features
-            and services.
+            Your One-Stop Shop for Used Industrial Machinery. Find the Right Parts at the Best Prices. Hire Experts to Streamline Your Operations. Get Deals You Won't Find Anywhere Else.
           </Typography>
           <Stack
             direction={{ xs: 'column', sm: 'row' }}
@@ -84,7 +82,7 @@ export default function Hero() {
               }}
             />
             <Button variant="contained" color="primary">
-              Start now
+              Connect
             </Button>
           </Stack>
           <Typography variant="caption" textAlign="center" sx={{ opacity: 0.8 }}>
@@ -104,8 +102,8 @@ export default function Hero() {
             width: '100%',
             backgroundImage:
               theme.palette.mode === 'light'
-                ? 'url("/static/images/templates/templates-images/hero-light.png")'
-                : 'url("/static/images/templates/templates-images/hero-dark.png")',
+                ? 'url("https://img.freepik.com/free-photo/old-industrial-machines-symbols-enduring-craftsmanship_157027-4501.jpg?t=st=1719584391~exp=1719587991~hmac=1101ee475953f68a6ea0829383775938449effd26b25348ce4d69b1d73791ced&w=1380")'
+                : 'url("https://img.freepik.com/free-photo/modern-brewery-factory-interior-pipe-lines-other-equipment-tool-plant-workshop-industrial-background-metal-pipes-closeup-industrial-plant-inside-view-maze-pipes-background_645730-825.jpg?t=st=1719584436~exp=1719588036~hmac=4594d6eeb5592391a94fc46c8058de2564d555a73a71d0f8fd5150637357424d&w=1060")',
             backgroundSize: 'cover',
             borderRadius: '10px',
             outline: '1px solid',

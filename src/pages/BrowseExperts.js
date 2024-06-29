@@ -11,8 +11,11 @@ const BrowseExperts = () => {
   }, []);
 
   return (
-    <Container>
-      <Grid container spacing={4}>
+    <Container style={{
+      height: "100vh",
+      marginTop: "122px"
+    }}>
+      <Grid container  spacing={4}>
         {experts.map((expert) => (
           <Grid item key={expert.id} xs={12} sm={6} md={4}>
             <Card>

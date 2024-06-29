@@ -12,7 +12,10 @@ const UserProfile = () => {
   };
 
   return (
-    <Container maxWidth="sm">
+    <Container style={{
+      height: "100vh",
+      marginTop: "122px"
+    }}maxWidth="sm">
       <h2>User Profile</h2>
       <form onSubmit={handleSubmit}>
         <TextField

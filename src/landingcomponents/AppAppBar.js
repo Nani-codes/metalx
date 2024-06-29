@@ -13,6 +13,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import ToggleColorMode from "./ToggleColorMode";
 import PrecisionManufacturingIcon from "@mui/icons-material/PrecisionManufacturing";
 import { Link } from "react-router-dom";
+import FactoryIcon from "@mui/icons-material/Factory";
 
 function AppAppBar({ mode, toggleColorMode }) {
   const [open, setOpen] = React.useState(false);
@@ -54,7 +55,7 @@ function AppAppBar({ mode, toggleColorMode }) {
               alignItems: "center",
               justifyContent: "space-between",
               flexShrink: 0,
-              borderRadius: "999px",
+              borderRadius: "11px",
               bgcolor:
                 theme.palette.mode === "light"
                   ? "rgba(255, 255, 255, 0.4)"
@@ -85,7 +86,7 @@ function AppAppBar({ mode, toggleColorMode }) {
               sx={{
                 mr: 5,
                 display: { xs: "none", md: "flex" },
-                fontFamily: "monospace",
+                fontFamily: "aial",
                 fontWeight: "bolder",
                 letterSpacing: ".2rem",
                 color: "secondary",
@@ -104,7 +105,11 @@ function AppAppBar({ mode, toggleColorMode }) {
               }}
             >
               <Box sx={{ display: { xs: "none", md: "flex" } }}>
-                <MenuItem sx={{ py: "6px", px: "12px" }}>
+                <MenuItem
+                  component={Link}
+                  to="Buy"
+                  sx={{ py: "6px", px: "12px" }}
+                >
                   <Typography
                     component={Link}
                     to="Buy"
@@ -215,7 +220,6 @@ function AppAppBar({ mode, toggleColorMode }) {
                 size="small"
                 component="a"
                 href="/login"
-                target="_blank"
               >
                 Sign in
               </Button>
@@ -225,12 +229,46 @@ function AppAppBar({ mode, toggleColorMode }) {
                 size="small"
                 component="a"
                 href="/register"
-                target="_blank"
               >
                 Sign up
               </Button>
             </Box>
-            <Box sx={{ display: { sm: "", md: "none" } }}>
+            <Box
+              display="flex"
+              width="100%"
+              sx={{
+                display: {
+                  md: "none",
+                  display: "flex",
+                  justifyContent: "space-between",
+                },
+              }}
+            >
+              <FactoryIcon
+                sx={{
+                  display: { xs: "", md: "flex" },
+                  mr: 2,
+                  color: "black",
+                  fontSize: 50,
+                }}
+              />
+              <Typography
+                variant="h4"
+                noWrap
+                component="a"
+                href="/"
+                sx={{
+                  mr: 5,
+                  display: { xs: "", md: "flex" },
+                  fontFamily: "aial",
+                  fontWeight: "bolder",
+                  letterSpacing: ".2rem",
+                  color: "secondary",
+                  textDecoration: "none",
+                }}
+              >
+                MetalX
+              </Typography>
               <Button
                 variant="text"
                 color="primary"
@@ -262,20 +300,32 @@ function AppAppBar({ mode, toggleColorMode }) {
                       toggleColorMode={toggleColorMode}
                     />
                   </Box>
-                  <MenuItem onClick={() => scrollToSection("features")}>
-                    Features
+                  <MenuItem component={Link} to="Buy">
+                    Buy
                   </MenuItem>
-                  <MenuItem onClick={() => scrollToSection("testimonials")}>
-                    Testimonials
+                  <MenuItem component={Link} to="Sell">
+                    Sell
                   </MenuItem>
-                  <MenuItem onClick={() => scrollToSection("highlights")}>
-                    Highlights
+                  <MenuItem component={Link} to="Auction">
+                    Auction
                   </MenuItem>
-                  <MenuItem onClick={() => scrollToSection("pricing")}>
-                    Pricing
+                  <MenuItem component={Link} to="Experts">
+                    Experts
                   </MenuItem>
-                  <MenuItem onClick={() => scrollToSection("faq")}>
-                    FAQ
+                  <Divider />
+                  <MenuItem
+                    color="secondary"
+                    variant="text"
+                    component={Link}
+                    to="Profile"
+                  >
+                    <Typography color="secondary">Profile</Typography>
+                  </MenuItem>
+                  <MenuItem color="secondary" component={Link} to="Dashboard">
+                    <Typography color="secondary">Dashboard</Typography>
+                  </MenuItem>
+                  <MenuItem color="secondary" component={Link} to="cart">
+                    <Typography color="secondary">Cart</Typography>
                   </MenuItem>
                   <Divider />
                   <MenuItem>
@@ -283,8 +333,8 @@ function AppAppBar({ mode, toggleColorMode }) {
                       color="primary"
                       variant="contained"
                       component="a"
-                      href="/material-ui/getting-started/templates/sign-up/"
-                      target="_blank"
+                      href="/login"
+                      target=""
                       sx={{ width: "100%" }}
                     >
                       Sign up
@@ -295,8 +345,8 @@ function AppAppBar({ mode, toggleColorMode }) {
                       color="primary"
                       variant="outlined"
                       component="a"
-                      href="/material-ui/getting-started/templates/sign-in/"
-                      target="_blank"
+                      href="/register"
+                      target=""
                       sx={{ width: "100%" }}
                     >
                       Sign in

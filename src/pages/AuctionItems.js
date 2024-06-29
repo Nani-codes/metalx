@@ -18,8 +18,11 @@ const AuctionItems = () => {
   }, [category, minPrice, maxPrice]);
 
   return (
-    <Container>
-      <Box mt={4} mb={2}>
+    <Container style={{
+      height: "100vh",
+      marginTop: "122px"
+    }}>
+      <Box mt={0} mb={2}>
         <Typography variant="h4">Auction Items</Typography>
       </Box>
       <Grid container spacing={2} mb={4}>

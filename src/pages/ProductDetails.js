@@ -12,8 +12,11 @@ const ProductDetails = () => {
     }
   
     return (
-      <Container>
-        <Box mt={4} mb={2}>
+      <Container style={{
+        height: "100vh",
+        marginTop: "122px"
+      }}>
+        <Box mt={10} mb={2}>
           <Typography variant="h4">{product.name}</Typography>
         </Box>
         <Typography variant="h6">Category: {product.category}</Typography>

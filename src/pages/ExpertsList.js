@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Container, Grid, Typography, Card, CardContent, Button, TextField, Box } from '@mui/material';
 import { mockExperts } from '../data/mockData';
+import { Link } from 'react-router-dom';
 
 const ExpertsList = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -17,9 +18,13 @@ const ExpertsList = () => {
   };
 
   return (
-    <Container>
-      <Box mt={4} mb={2}>
+    <Container style={{
+      height: "100vh",
+      marginTop: "122px"
+    }}>
+      <Box mb={2}>
         <Typography variant="h4">Machine Experts and Operators</Typography>
+        <Button variant="contained" color="primary" component={Link} to="/register-expert">Register as Expert</Button>
       </Box>
       <TextField
         label="Search Experts"

@@ -50,7 +50,7 @@ const BrowseItems = () => {
 
   return (
     <Container>
-      <Box mt={4} mb={2}>
+      <Box mt={10} mb={2}>
         <Typography variant="h4">Browse Items</Typography>
       </Box>
       <TextField
@@ -60,8 +60,8 @@ const BrowseItems = () => {
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
       />
-      <Grid container spacing={2} mb={4}>
-        <Grid item xs={12} sm={4}>
+      <Grid container mt={2} spacing={2} mb={4}>
+        <Grid item xs={4} sm={0}>
           <TextField
             label="Category"
             variant="outlined"

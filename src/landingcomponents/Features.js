@@ -9,34 +9,28 @@ import Link from '@mui/material/Link';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import ChevronRightRoundedIcon from '@mui/icons-material/ChevronRightRounded';
-import DevicesRoundedIcon from '@mui/icons-material/DevicesRounded';
-import EdgesensorHighRoundedIcon from '@mui/icons-material/EdgesensorHighRounded';
-import ViewQuiltRoundedIcon from '@mui/icons-material/ViewQuiltRounded';
+import EngineeringIcon from '@mui/icons-material/Engineering';
+import SellIcon from '@mui/icons-material/Sell';
+import ShoppingBagIcon from '@mui/icons-material/ShoppingBag';
 
 const items = [
   {
-    icon: <ViewQuiltRoundedIcon />,
-    title: 'Dashboard',
+    icon: <ShoppingBagIcon />,
+    title: 'Buy Machines',
     description:
-      'This item could provide a snapshot of the most important metrics or data points related to the product.',
-    imageLight: 'url("/static/images/templates/templates-images/dash-light.png")',
-    imageDark: 'url("/static/images/templates/templates-images/dash-dark.png")',
+      'Power Up Your Industrial Projects. Buy Smarter, Hire Experts, Score Deals on Used Machinery.'
   },
   {
-    icon: <EdgesensorHighRoundedIcon />,
-    title: 'Mobile integration',
+    icon: <SellIcon />,
+    title: 'Sell Your Machine',
     description:
-      'This item could provide information about the mobile app version of the product.',
-    imageLight: 'url("/static/images/templates/templates-images/mobile-light.png")',
-    imageDark: 'url("/static/images/templates/templates-images/mobile-dark.png")',
+      'Sell Smart, Sell Fast. Get Top Dollar for Your Used Machinery.',
   },
   {
-    icon: <DevicesRoundedIcon />,
-    title: 'Available on all platforms',
+    icon: <EngineeringIcon />,
+    title: 'Hire Experts',
     description:
-      'This item could let users know the product is available on all platforms, such as web, mobile, and desktop.',
-    imageLight: 'url("/static/images/templates/templates-images/devices-light.png")',
-    imageDark: 'url("/static/images/templates/templates-images/devices-dark.png")',
+      'The Easy Way to Find Expert Support for Your Industrial Machinery. Level Up Your Projects. Hire the Right Industrial Experts Here.',
   },
 ];
 
@@ -69,10 +63,9 @@ export default function Features() {
           </div>
           <Grid container item gap={1} sx={{ display: { xs: 'auto', sm: 'none' } }}>
             {items.map(({ title }, index) => (
-              <Chip
-                key={index}
+              <Button
                 label={title}
-                onClick={() => handleItemClick(index)}
+                component={Link} to={title}
                 sx={{
                   borderColor: (theme) => {
                     if (theme.palette.mode === 'light') {
@@ -104,13 +97,7 @@ export default function Features() {
           >
             <Box
               sx={{
-                backgroundImage: (theme) =>
-                  theme.palette.mode === 'light'
-                    ? items[selectedItemIndex].imageLight
-                    : items[selectedItemIndex].imageDark,
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
-                minHeight: 280,
+                backgroundImage: "https://img.freepik.com/free-photo/vertical-shot-metal-instrument-with-small-steering-wheel_181624-17350.jpg?ga=GA1.1.1797059496.1719496877&semt=ais_user"
               }}
             />
             <Box sx={{ px: 2, pb: 2 }}>
@@ -215,6 +202,7 @@ export default function Features() {
                       color="primary"
                       variant="body2"
                       fontWeight="bold"
+                      to={title}
                       sx={{
                         display: 'inline-flex',
                         alignItems: 'center',
@@ -250,20 +238,10 @@ export default function Features() {
               width: '100%',
               display: { xs: 'none', sm: 'flex' },
               pointerEvents: 'none',
+              backgroundImage:"https://img.freepik.com/free-photo/vertical-shot-metal-instrument-with-small-steering-wheel_181624-17350.jpg?ga=GA1.1.1797059496.1719496877&semt=ais_user"
             }}
           >
-            <Box
-              sx={{
-                m: 'auto',
-                width: 420,
-                height: 500,
-                backgroundSize: 'contain',
-                backgroundImage: (theme) =>
-                  theme.palette.mode === 'light'
-                    ? items[selectedItemIndex].imageLight
-                    : items[selectedItemIndex].imageDark,
-              }}
-            />
+            <img alt="machine" width="100%" src="https://img.freepik.com/free-photo/red-steel-tool-box-garage_613910-13498.jpg?t=st=1719592595~exp=1719596195~hmac=454fbb9f3c5331eae4b723e12a9bcaee54bba550388b11bb92064b4ceedde989&w=1060"/>
           </Card>
         </Grid>
       </Grid>

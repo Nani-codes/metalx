@@ -5,23 +5,15 @@ import Grid from '@mui/material/Grid';
 import { useTheme } from '@mui/system';
 
 const whiteLogos = [
-  'https://assets-global.website-files.com/61ed56ae9da9fd7e0ef0a967/6560628e8573c43893fe0ace_Sydney-white.svg',
-  'https://assets-global.website-files.com/61ed56ae9da9fd7e0ef0a967/655f4d520d0517ae8e8ddf13_Bern-white.svg',
-  'https://assets-global.website-files.com/61ed56ae9da9fd7e0ef0a967/655f46794c159024c1af6d44_Montreal-white.svg',
-  'https://assets-global.website-files.com/61ed56ae9da9fd7e0ef0a967/61f12e891fa22f89efd7477a_TerraLight.svg',
-  'https://assets-global.website-files.com/61ed56ae9da9fd7e0ef0a967/6560a09d1f6337b1dfed14ab_colorado-white.svg',
-  'https://assets-global.website-files.com/61ed56ae9da9fd7e0ef0a967/655f5caa77bf7d69fb78792e_Ankara-white.svg',
+  'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Tata_logo.svg/677px-Tata_logo.svg.png',
+  'https://upload.wikimedia.org/wikipedia/commons/e/e5/L%26T.png?20141228172036',
+  'https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Godrej_Logo.svg/1024px-Godrej_Logo.svg.png',
+  'https://upload.wikimedia.org/wikipedia/de/thumb/3/31/Bosch-logotype.svg/768px-Bosch-logotype.svg.png?20190123165734',
+  'https://upload.wikimedia.org/wikipedia/en/thumb/e/e0/Thermax_logo.svg/800px-Thermax_logo.svg.png',
+  'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/BHEL_logo.svg/750px-BHEL_logo.svg.png',
 ];
 
-const darkLogos = [
-  'https://assets-global.website-files.com/61ed56ae9da9fd7e0ef0a967/6560628889c3bdf1129952dc_Sydney-black.svg',
-  'https://assets-global.website-files.com/61ed56ae9da9fd7e0ef0a967/655f4d4d8b829a89976a419c_Bern-black.svg',
-  'https://assets-global.website-files.com/61ed56ae9da9fd7e0ef0a967/655f467502f091ccb929529d_Montreal-black.svg',
-  'https://assets-global.website-files.com/61ed56ae9da9fd7e0ef0a967/61f12e911fa22f2203d7514c_TerraDark.svg',
-  'https://assets-global.website-files.com/61ed56ae9da9fd7e0ef0a967/6560a0990f3717787fd49245_colorado-black.svg',
-  'https://assets-global.website-files.com/61ed56ae9da9fd7e0ef0a967/655f5ca4e548b0deb1041c33_Ankara-black.svg',
-];
-
+const darkLogos = whiteLogos
 const logoStyle = {
   width: '100px',
   height: '80px',
@@ -43,7 +35,7 @@ export default function LogoCollection() {
       >
         Trusted by the best companies
       </Typography>
-      <Grid container justifyContent="center" sx={{ mt: 0.5, opacity: 0.6 }}>
+      <Grid container spacing={5}justifyContent="center" sx={{ mt: 4,opacity: 1, }}>
         {logos.map((logo, index) => (
           <Grid item key={index}>
             <img

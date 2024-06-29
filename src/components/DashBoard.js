@@ -6,7 +6,10 @@ const DashBoard = () => {
   const { boughtItems, soldItems, hiredExperts } = mockUserProfile;
 
   return (
-    <Container>
+    <Container style={{
+      height: "100vh",
+      marginTop: "122px"
+    }}>
       <Typography variant="h4" mt={4} mb={2}>User Profile</Typography>
 
       <Typography variant="h5" mt={4}>Bought Items</Typography>

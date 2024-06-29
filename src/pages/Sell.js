@@ -21,7 +21,10 @@ const Sell = () => {
   };
 
   return (
-    <Container>
+    <Container style={{
+      height: "100vh",
+      marginTop: "122px"
+    }}>
       <Typography variant="h4" gutterBottom>Sell Your Product</Typography>
       <form onSubmit={handleSubmit}>
         <Box mb={2}>

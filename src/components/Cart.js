@@ -4,7 +4,10 @@ import { mockCart } from '../data/mockData';
 
 const Cart = () => {
   return (
-    <Container>
+    <Container style={{
+      height: "100vh",
+      marginTop: "122px"
+    }}>
       <Typography variant="h4" mt={4} mb={2}>Shopping Cart</Typography>
       <Grid container spacing={3} mt={2}>
         {mockCart.map((item) => (
