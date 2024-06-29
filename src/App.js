@@ -21,7 +21,9 @@ import DashBoard from './components/DashBoard';
 import Cart from './components/Cart';
 import LandingPage from './pages/LandingPage'
 import getLPTheme from './pages/getLPTheme';
+import SignUp from './pages/SignUp';
 import AppAppBar from './landingcomponents/AppAppBar';
+import Checkout from './checkoutcomponents/Checkout';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import Divider from '@mui/material/Divider';
 
@@ -69,6 +71,8 @@ function App() {
         <Route path="/profile" element={<UserProfile />} />
         <Route path="/dashboard" element={<DashBoard />} />
         <Route path="/cart" element={<Cart />} />
+        <Route path="/checkout" element={<Checkout />} />
+        <Route path="/signup" element={<SignUp />} />
       </Routes>
     </Router>
     <Divider/>

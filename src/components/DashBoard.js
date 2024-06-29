@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Typography, Card, CardContent, Grid } from '@mui/material';
+import { Container, Typography, Card, CardContent, Grid, Button, Link } from '@mui/material';
 import { mockUserProfile } from '../data/mockData';
 
 const DashBoard = () => {
@@ -7,7 +7,7 @@ const DashBoard = () => {
 
   return (
     <Container style={{
-      height: "100vh",
+      height: "100%",
       marginTop: "122px"
     }}>
       <Typography variant="h4" mt={4} mb={2}>User Profile</Typography>
@@ -21,6 +21,9 @@ const DashBoard = () => {
                 <Typography variant="h6">{item.name}</Typography>
                 <Typography>Price: ${item.price}</Typography>
                 <Typography>Purchase Date: {item.date}</Typography>
+                <Button variant="outlined" color="primary" size="small" mt={2}>
+                  View Details
+                </Button>
               </CardContent>
             </Card>
           </Grid>
@@ -36,6 +39,9 @@ const DashBoard = () => {
                 <Typography variant="h6">{item.name}</Typography>
                 <Typography>Price: ${item.price}</Typography>
                 <Typography>Sold Date: {item.date}</Typography>
+                <Button variant="outlined" color="primary" size="small" mt={2}>
+                  View Details
+                </Button>
               </CardContent>
             </Card>
           </Grid>
@@ -52,11 +58,21 @@ const DashBoard = () => {
                 <Typography>Expertise: {expert.expertise}</Typography>
                 <Typography>Rate: ${expert.rate}/hour</Typography>
                 <Typography>Hired Date: {expert.date}</Typography>
+                <Button variant="outlined" color="primary" size="small" mt={2}>
+                  View Profile
+                </Button>
+                <Link href="#" underline="none" mt={2}>
+                  Send Message
+                </Link>
               </CardContent>
             </Card>
           </Grid>
         ))}
       </Grid>
+        <br/>
+      <Button justifyContent="center"variant="contained" color="primary" size="large" mt={4} mb={2}>
+        Edit Profile
+      </Button>
     </Container>
   );
 };

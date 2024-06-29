@@ -228,7 +228,7 @@ function AppAppBar({ mode, toggleColorMode }) {
                 variant="contained"
                 size="small"
                 component="a"
-                href="/register"
+                href="/signup"
               >
                 Sign up
               </Button>
@@ -337,7 +337,7 @@ function AppAppBar({ mode, toggleColorMode }) {
                       target=""
                       sx={{ width: "100%" }}
                     >
-                      Sign up
+                      Sign In
                     </Button>
                   </MenuItem>
                   <MenuItem>
@@ -345,11 +345,11 @@ function AppAppBar({ mode, toggleColorMode }) {
                       color="primary"
                       variant="outlined"
                       component="a"
-                      href="/register"
+                      href="/signup"
                       target=""
                       sx={{ width: "100%" }}
                     >
-                      Sign in
+                      Sign Up
                     </Button>
                   </MenuItem>
                 </Box>

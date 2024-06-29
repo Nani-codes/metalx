@@ -22,21 +22,45 @@ const BrowseItems = () => {
   const [maxPrice, setMaxPrice] = useState("");
   const [searchTerm, setSearchTerm] = useState("");
   const [page, setPage] = useState(1);
+  const [sortBy, setSortBy] = useState(""); // Add a state for the sort by filter
   const itemsPerPage = 6;
 
   const filteredItems = useMemo(() => {
-    return mockItems.filter((item) => {
-      const nameMatch = item.name.toLowerCase().includes(searchTerm.toLowerCase());
-      const categoryMatch = item.category.toLowerCase().includes(searchTerm.toLowerCase());
+    let filteredItems = mockItems.filter((item) => {
+      const nameMatch = item.name
+        .toLowerCase()
+        .includes(searchTerm.toLowerCase());
+      const categoryMatch = item.category
+        .toLowerCase()
+        .includes(searchTerm.toLowerCase());
       const categoryFilter = category === "" || item.category === category;
-      const minPriceMatch = minPrice === "" || item.price >= parseFloat(minPrice);
-      const maxPriceMatch = maxPrice === "" || item.price <= parseFloat(maxPrice);
-      return (nameMatch || categoryMatch) && categoryFilter && minPriceMatch && maxPriceMatch;
+      const minPriceMatch =
+        minPrice === "" || item.price >= parseFloat(minPrice);
+      const maxPriceMatch =
+        maxPrice === "" || item.price <= parseFloat(maxPrice);
+      return (
+        (nameMatch || categoryMatch) &&
+        categoryFilter &&
+        minPriceMatch &&
+        maxPriceMatch
+      );
     });
-  }, [searchTerm, category, minPrice, maxPrice]);
+
+    // Apply the sort by filter
+    if (sortBy === "lowToHigh") {
+      filteredItems = filteredItems.sort((a, b) => a.price - b.price);
+    } else if (sortBy === "highToLow") {
+      filteredItems = filteredItems.sort((a, b) => b.price - a.price);
+    }
+
+    return filteredItems;
+  }, [searchTerm, category, minPrice, maxPrice, sortBy]);
 
   const pageCount = Math.ceil(filteredItems.length / itemsPerPage);
-  const displayedItems = filteredItems.slice((page - 1) * itemsPerPage, page * itemsPerPage);
+  const displayedItems = filteredItems.slice(
+    (page - 1) * itemsPerPage,
+    page * itemsPerPage
+  );
 
   const navigate = useNavigate();
 
@@ -48,8 +72,15 @@ const BrowseItems = () => {
     setPage(value);
   };
 
+  const handleSortByChange = (event) => {
+    setSortBy(event.target.value);
+  };
+
   return (
-    <Container>
+    <Container style={{
+      height: "100%",
+      marginTop: "122px",
+    }}>
       <Box mt={10} mb={2}>
         <Typography variant="h4">Browse Items</Typography>
       </Box>
@@ -94,6 +125,20 @@ const BrowseItems = () => {
             onChange={(e) => setMaxPrice(e.target.value)}
           />
         </Grid>
+        <Grid item xs={12} sm={4}>
+          <TextField
+            label="Sort by"
+            variant="outlined"
+            fullWidth
+            select
+            value={sortBy}
+            onChange={handleSortByChange}
+          >
+            <MenuItem value="">Default</MenuItem>
+            <MenuItem value="lowToHigh">Price: Low to High</MenuItem>
+            <MenuItem value="highToLow">Price: High to Low</MenuItem>
+          </TextField>
+        </Grid>
       </Grid>
       <Grid container spacing={2}>
         {displayedItems.map((item) => (
@@ -109,14 +154,28 @@ const BrowseItems = () => {
                 <Typography variant="h5">{item.name}</Typography>
                 <Typography>{item.description}</Typography>
                 <Typography variant="h6">${item.price}</Typography>
-                <Button
-                  variant="contained"
-                  color="primary"
-                  component={Link}
-                  to={`/product/${item.id}`}
-                >
-                  View Details
-                </Button>
+                <Grid container spacing={2}>
+                  <Grid item xs={8}>
+                  <Button
+                    variant="contained"
+                    color="primary"
+                    component={Link}
+                    to={`/product/${item.id}`}
+                  >
+                    View Details
+                  </Button>
+                  </Grid>
+                  <Grid item xs={4}>
+                  <Button
+                    variant="outlined"
+                    color="primary"
+                    component={Link}
+                    to={`/cart`}
+                  >
+                    Cart
+                  </Button>
+                  </Grid>
+                </Grid>
               </CardContent>
             </Card>
           </Grid>

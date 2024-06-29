@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
-import { Container, Typography, Box } from '@mui/material';
-import { mockExperts } from '../data/mockData';
+import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import { Button, Container, Typography, Box } from "@mui/material";
+import { mockExperts } from "../data/mockData";
 
 const ExpertDetails = () => {
   const { id } = useParams();
@@ -21,10 +21,12 @@ const ExpertDetails = () => {
   }
 
   return (
-    <Container style={{
-      height: "100vh",
-      marginTop: "122px"
-    }}>
+    <Container
+      style={{
+        height: "100vh",
+        marginTop: "122px",
+      }}
+    >
       <Box mt={4} mb={2}>
         <Typography variant="h4">{expert.name}</Typography>
       </Box>
@@ -32,6 +34,18 @@ const ExpertDetails = () => {
       <Typography>Experience: {expert.experience}</Typography>
       <Typography>Rate: ${expert.rate}/hour</Typography>
       <Typography>Description: {expert.description}</Typography>
+      <Typography>Location: {expert.location}</Typography>
+      <Typography>Availability: {expert.availability}</Typography>
+      <Typography>
+        Certifications: {expert.certifications.join(", ")}
+      </Typography>
+      <Typography>Languages: {expert.languages.join(", ")}</Typography>
+      <Typography>
+        Rating: {expert.reviews} ({expert.ratingCount} reviews)
+      </Typography>
+      <Button variant="contained" color="primary">
+        Contact Expert
+      </Button>
     </Container>
   );
 };

@@ -12,8 +12,8 @@ const BrowseExperts = () => {
 
   return (
     <Container style={{
-      height: "100vh",
-      marginTop: "122px"
+      height: "100%",
+      marginTop: "122px",
     }}>
       <Grid container  spacing={4}>
         {experts.map((expert) => (
