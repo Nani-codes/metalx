@@ -7,7 +7,7 @@ import Link from '@mui/material/Link';
 import Stack from '@mui/material/Stack';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
-
+import image from '../data/image1.jpg'
 export default function Hero() {
   return (
     <Box
@@ -102,8 +102,8 @@ export default function Hero() {
             width: '100%',
             backgroundImage:
               theme.palette.mode === 'light'
-                ? 'url("https://img.freepik.com/free-photo/old-industrial-machines-symbols-enduring-craftsmanship_157027-4501.jpg?t=st=1719584391~exp=1719587991~hmac=1101ee475953f68a6ea0829383775938449effd26b25348ce4d69b1d73791ced&w=1380")'
-                : 'url("https://img.freepik.com/free-photo/modern-brewery-factory-interior-pipe-lines-other-equipment-tool-plant-workshop-industrial-background-metal-pipes-closeup-industrial-plant-inside-view-maze-pipes-background_645730-825.jpg?t=st=1719584436~exp=1719588036~hmac=4594d6eeb5592391a94fc46c8058de2564d555a73a71d0f8fd5150637357424d&w=1060")',
+                ? `url(${image})`
+                : `url(${image})`,
             backgroundSize: 'cover',
             borderRadius: '10px',
             outline: '1px solid',

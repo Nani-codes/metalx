@@ -12,7 +12,7 @@ import ChevronRightRoundedIcon from '@mui/icons-material/ChevronRightRounded';
 import EngineeringIcon from '@mui/icons-material/Engineering';
 import SellIcon from '@mui/icons-material/Sell';
 import ShoppingBagIcon from '@mui/icons-material/ShoppingBag';
-
+import image from '../data/image.jpg'
 const items = [
   {
     icon: <ShoppingBagIcon />,
@@ -97,7 +97,7 @@ export default function Features() {
           >
             <Box
               sx={{
-                backgroundImage: "https://img.freepik.com/free-photo/vertical-shot-metal-instrument-with-small-steering-wheel_181624-17350.jpg?ga=GA1.1.1797059496.1719496877&semt=ais_user"
+                backgroundImage: {image}
               }}
             />
             <Box sx={{ px: 2, pb: 2 }}>
@@ -234,14 +234,14 @@ export default function Features() {
           <Card
             variant="outlined"
             sx={{
-              height: '100%',
+              height: '75%',
               width: '100%',
               display: { xs: 'none', sm: 'flex' },
               pointerEvents: 'none',
-              backgroundImage:"https://img.freepik.com/free-photo/vertical-shot-metal-instrument-with-small-steering-wheel_181624-17350.jpg?ga=GA1.1.1797059496.1719496877&semt=ais_user"
+              backgroundImage:"ais_user"
             }}
           >
-            <img alt="machine" width="100%" src="https://img.freepik.com/free-photo/red-steel-tool-box-garage_613910-13498.jpg?t=st=1719592595~exp=1719596195~hmac=454fbb9f3c5331eae4b723e12a9bcaee54bba550388b11bb92064b4ceedde989&w=1060"/>
+            <img object-fit="cover"height= "auto" alt="machine" width="100%" src={image}/>
           </Card>
         </Grid>
       </Grid>
